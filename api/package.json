@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.22.1",
+    "mongodb": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7"
+  },
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "start": "node server.js",
+    "build": "tsc && cp package.json build/ && cp yarn.lock build/",
+    "docker:build": "yarn build && docker build -t docker-compose-studies-api:latest .",
+    "docker:run": "docker run --name docker-compose-studies-api -p 3000:3000 -d docker-compose-studies-api"
+  }
+}
